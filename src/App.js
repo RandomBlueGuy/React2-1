@@ -1,6 +1,6 @@
 
 import './App.css';
-
+/*import data from './assets(unused)/data.json'*/
 import CharacterCard from './Components/CharacterCard';
 import axios from "axios"
 import React, {useEffect, useState} from "react"
