@@ -1,12 +1,20 @@
 
 import './App.css';
-import data from './assets/data.json'
+
 import CharacterCard from './Components/CharacterCard';
+import axios from "axios"
+import React, {useEffect, useState} from "react"
 
-/*
-
-*/
 function App() {
+  const [characters, setCharacters] = useState([])
+	
+	useEffect(() => {
+		axios.get(`https://rickandmortyapi.com/api/character/${[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]}`)
+			.then((element) => {
+				setCharacters(element.data);
+			})
+	}, [])
+
   return (
     <div className="App">
         <div className='title'>
@@ -14,7 +22,7 @@ function App() {
           <h2>The Character Card edition</h2>
         </div>
       <header className="App-header">
-        {data.map(item => 
+        {characters.map(item => 
         <CharacterCard 
           name = {item.name}
           image = {item.image}
